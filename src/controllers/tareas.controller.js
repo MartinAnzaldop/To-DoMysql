@@ -1,10 +1,14 @@
 import { pool } from "../db.js";
 
 export const getTareas = async (req, res) => {
-  
+  try {
+    
     const [tareas] = await pool.query("SELECT * FROM tarea");
     res.json(tareas);
-}
+  } catch {
+    return res.status(500).json({ mensaje: "error 400, no se pudo consultar a la base de datos " });
+  }
+};
 
 export const getTareasById = async (req, res) => {
   try {
