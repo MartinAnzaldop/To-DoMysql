@@ -11,6 +11,9 @@ app.use(cors());
 app.use(indexRoutes);
 app.use(tareasRoutes);
 app.use((req, res, next)=>{
+res.json({
+    "mensaje":"no sé encontró la petición al servidor"
+})
 })
 
 export default app;
