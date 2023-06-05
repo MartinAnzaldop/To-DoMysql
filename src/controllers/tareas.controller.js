@@ -1,14 +1,10 @@
 import { pool } from "../db.js";
 
 export const getTareas = async (req, res) => {
-  try {
-    
+  
     const [tareas] = await pool.query("SELECT * FROM tarea");
     res.json(tareas);
-  } catch {
-    return res.status(500).json({ mensaje: "ERROR del servidor" });
-  }
-};
+}
 
 export const getTareasById = async (req, res) => {
   try {
